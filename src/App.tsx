@@ -18,6 +18,7 @@ function App() {
   const [config, setConfig] = useState(defaultConfig);
   return (
     <div className="App container">
+      <h1>Palm card maker!</h1>
       <PalmCardConfig  onComplete={(config)=> setConfig(config)} {...config}/>
       <PalmCard {...config} />
     </div>

@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import React, { Component, FC, useEffect } from 'react';
 import styles from './PalmCard.module.css';
 import { PalmCardConfigProps } from '../PalmCardConfig/PalmCardConfig';
 import { array } from 'yargs';
 import Card from '../Card/Card';
+import $ from 'jquery';
 
 function breakText(text: string, maxLength: number) {
   const sentences = text.split(/(?<=[.!?])\s+/);
@@ -85,10 +86,33 @@ function generateDOM(props: PalmCardConfigProps) {
 }
 
 
-const PalmCard: FC<PalmCardConfigProps> = (props) => (
-  <div className={`${styles.PalmCard} container`} data-testid="PalmCard">
-    {generateDOM(props)}
-  </div>
-);
+export default class PalmCard extends Component<PalmCardConfigProps> {
+  public static defaultProps =
+    {
+      text: "",
+      maxTextLength: 200,
+      fontSize: 12,
+      numberOfColumns: 2
 
-export default PalmCard;
+    };
+  // After the component did mount, we set the state each second.
+  componentDidUpdate() {
+    let maxHeight = 10;
+    $('.cardRow').each((i, e) => {
+      maxHeight = Math.max($(e).height() || 0, maxHeight)
+    });
+    console.log(maxHeight);
+    $('.cardRow').height(maxHeight);
+    $('.cardRow').height('auto');
+  }
+
+  render() {
+    return (
+      <div className={`container ${styles.PalmCard}`} style={ {fontSize: this.props.fontSize+'pt'} } data-testid="PalmCard">
+        <div className='container'>
+          {generateDOM(this.props)}
+        </div>
+      </div>
+    );
+  }
+}
