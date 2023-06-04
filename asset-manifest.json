@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/palm-card/static/css/main.a060c906.css",
+    "main.js": "/palm-card/static/js/main.4e9ec58c.js",
+    "static/js/787.61745cdc.chunk.js": "/palm-card/static/js/787.61745cdc.chunk.js",
+    "index.html": "/palm-card/index.html",
+    "main.a060c906.css.map": "/palm-card/static/css/main.a060c906.css.map",
+    "main.4e9ec58c.js.map": "/palm-card/static/js/main.4e9ec58c.js.map",
+    "787.61745cdc.chunk.js.map": "/palm-card/static/js/787.61745cdc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a060c906.css",
+    "static/js/main.4e9ec58c.js"
+  ]
+}
