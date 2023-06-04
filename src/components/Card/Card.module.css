@@ -1,0 +1,12 @@
+.Card {
+    border-color: black;
+    border-width: medium;
+    margin: 1px;
+}
+
+.CardNumber {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+    font-size: smaller;
+}

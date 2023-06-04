@@ -1,24 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PalmCardConfig, {PalmCardConfigProps} from './components/PalmCardConfig/PalmCardConfig';
+import PalmCard from './components/PalmCard/PalmCard';
+import bootstrap from 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
+  
+  const defaultConfig: PalmCardConfigProps = {
+    text:"",
+    maxTextLength:200,
+    fontSize: 12,
+    numberOfColumns:2
+    
+  };
+  const [config, setConfig] = useState(defaultConfig);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <PalmCardConfig  onComplete={(config)=> setConfig(config)} {...config}/>
+      <PalmCard {...config} />
     </div>
   );
 }
