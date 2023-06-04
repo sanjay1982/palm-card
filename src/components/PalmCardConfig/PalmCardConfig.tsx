@@ -25,12 +25,15 @@ const PalmCardConfig: FC<PalmCardConfigProps> = (props) => {
         <div className={`form-group row`}>
           <div className={`col`}>
             <input type="text" className={`form-control`} placeholder="Number Of Columns" value={numberOfColumns} onChange={(e) => setNumberOfColumns(parseInt(e.target.value))} />
+          <small id="textHelp" className={`form-text text-muted`}>Number Of Columns</small>
           </div>
           <div className={`col`}>
             <input type="text" className={`form-control`} placeholder="Font Size" value={fontSize} onChange={(e) => setFontSize(parseInt(e.target.value))} />
+          <small id="textHelp" className={`form-text text-muted`}>Font Size</small>
           </div>
           <div className={`col`}>
             <input type="text" className={`form-control`} placeholder="Max Text Length" value={maxTextLength} onChange={(e) => setMaxTextLength(parseInt(e.target.value))} />
+          <small id="textHelp" className={`form-text text-muted`}>Max Text Length</small>
           </div>
         </div>
         <div className={`form-group row`}>
