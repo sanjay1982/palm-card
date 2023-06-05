@@ -1,18 +1,18 @@
 .Card {
-    border-style: solid;
-    border-color: black;
-    border-width: medium;
-    margin: 1px;
-    display: block;
+  border-style: solid;
+  border-color: black;
+  border-width: medium;
+  margin: 1px;
+  display: block;
 }
 
 .CardNumber {
-    text-align: right;
-    font-weight: bold;
-    font-size: smaller;
+  text-align: right;
+  font-weight: bold;
+  font-size: smaller;
 }
 @media print {
-    .Card {
-        break-inside: avoid;
-    }
+  .Card {
+    break-inside: avoid;
+  }
 }
