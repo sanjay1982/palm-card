@@ -11,6 +11,7 @@ describe('<PalmCard />', () => {
       maxTextLength: 200,
       fontSize: 12,
       numberOfColumns: 2,
+      minCardHeight: 100
     }
     render(<PalmCard {...defaultConfig} />)
 

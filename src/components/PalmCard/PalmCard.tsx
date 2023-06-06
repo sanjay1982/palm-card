@@ -59,7 +59,6 @@ function generateDOM(props: PalmCardConfigProps) {
     return value
   }, [])
 
-  console.log(rows)
   if (rows.length > 0) {
     const lastRow = rows[rows.length - 1]
     while (lastRow.length < cols) lastRow.push('')
@@ -82,16 +81,20 @@ export default class PalmCard extends Component<PalmCardConfigProps> {
     maxTextLength: 200,
     fontSize: 12,
     numberOfColumns: 2,
+    minCardHeight: 100,
+  }
+  getSnapshotBeforeUpdate() {
+    $('.cardRow').height('auto');
   }
   // After the component did mount, we set the state each second.
   componentDidUpdate() {
-    let maxHeight = 10
+    let maxHeight = 10;
     $('.cardRow').each((i, e) => {
       maxHeight = Math.max($(e).height() || 0, maxHeight)
-    })
-    console.log(maxHeight)
-    $('.cardRow').height(maxHeight)
-    $('.cardRow').height('auto')
+    });
+    maxHeight = Math.max(this.props.minCardHeight, maxHeight);
+    $('.cardRow').height(maxHeight);
+    $('.cardRow').parent().height('auto');
   }
 
   render() {

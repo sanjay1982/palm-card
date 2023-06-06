@@ -6,6 +6,7 @@ export interface PalmCardConfigProps {
   maxTextLength: number
   fontSize: number
   numberOfColumns: number
+  minCardHeight: number
   onComplete?: (props: PalmCardConfigProps) => void
 }
 
@@ -14,6 +15,7 @@ const PalmCardConfig: FC<PalmCardConfigProps> = (props) => {
   const [maxTextLength, setMaxTextLength] = useState(props.maxTextLength)
   const [fontSize, setFontSize] = useState(props.fontSize)
   const [numberOfColumns, setNumberOfColumns] = useState(props.numberOfColumns)
+  const [minCardHeight, setMinCardHeight] = useState(props.minCardHeight)
   return (
     <div className={`${styles.PalmCardConfig} container d-print-none`} data-testid='PalmCardConfig'>
       <form>
@@ -68,13 +70,25 @@ const PalmCardConfig: FC<PalmCardConfigProps> = (props) => {
               Max Text Length
             </small>
           </div>
+          <div className={`col`}>
+            <input
+              type='text'
+              className={`form-control`}
+              placeholder='Min Card Height'
+              value={minCardHeight}
+              onChange={(e) => setMinCardHeight(parseInt(e.target.value))}
+            />
+            <small id='textHelp' className={`form-text text-muted`}>
+            Min Card Height
+            </small>
+          </div>
         </div>
         <div className={`form-group row`}>
           <div className={`col`}>
             <button
               type='button'
               className={`btn btn-primary`}
-              onClick={() => props.onComplete?.({ text, numberOfColumns, fontSize, maxTextLength })}
+              onClick={() => props.onComplete?.({ text, numberOfColumns, fontSize, maxTextLength, minCardHeight })}
             >
               Submit
             </button>

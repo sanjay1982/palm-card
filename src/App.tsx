@@ -12,6 +12,7 @@ function App() {
     maxTextLength: 200,
     fontSize: 12,
     numberOfColumns: 2,
+    minCardHeight:100
   }
   const [config, setConfig] = useState(defaultConfig)
   return (

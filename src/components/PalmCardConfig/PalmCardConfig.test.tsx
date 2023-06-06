@@ -11,6 +11,7 @@ describe('<PalmCardConfig />', () => {
         fontSize={0}
         maxTextLength={10}
         numberOfColumns={2}
+        minCardHeight={100}
         onComplete={(config: PalmCardConfigProps) => console.log(config)}
       />,
     )
